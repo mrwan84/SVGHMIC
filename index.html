@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title>SVG Editor</title>
+		<link rel="stylesheet" href="Style/style.css">
+		<script src="js/Editor.js"></script>
+		<script src="js/Source.js"></script>
+		<script defer src="js/app.js"></script>
+	</head>
+	<body>
+		<span class="tools" id="tools">
+			<input id="title" value="Untitled" style="width:100%"></input>
+			<div><input id="wireframe" type="checkbox"></input> outline</div>
+			<button id="load">Load</button>
+			<button id="save">Save</button>
+			<button id="clear">Clear</button>
+		</span>
+		<span class="content" id="content">
+			<svg class="stage" id="stage" width="700" height="400" viewBox="0 0 600 400"></svg>
+			<textarea class="textarea" id="textarea" spellcheck="false"></textarea>
+			<span>
+				<input type="text" name="" id="paramName">
+				<select name="" id="paraType">
+					<option value="HmiColor">HmiColor</option>
+					<option value="number">number</option>
+					<option value="boolean">boolean</option>
+				  </select> 
+				  <button id="add">ADD</button>  
+			</span>
+		</span>
+		<img src="./img/AutoSet.jpg" alt="Automation Set">
+	</body>
+</html>
