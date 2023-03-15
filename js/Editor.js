@@ -24,7 +24,7 @@ class Editor {
 
   toString(paramDef) {
     // TODO Checkbox for auto-formating
-    const Name = `FEST_${Math.floor(Math.random() * 1000)}`;
+    const Name = `AutomationSet_${Math.floor(Math.random() * 1000)}`;
     return [
       '<!DOCTYPE svg PUBLIC "-//SIEMENS//DTD SVG 1.0 TIA-HMI//EN" "http://tia.siemens.com/graphics/svg/1.4/dtd/svg14-hmi.dtd">\n',
       "<!-- Fest GmbH M.Alsouki -->\n",
