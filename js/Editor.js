@@ -1,6 +1,3 @@
-/**
- * @author mrdoob / http://mrdoob.com
- */
 
 class Editor {
   constructor(svg) {
