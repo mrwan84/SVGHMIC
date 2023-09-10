@@ -1,7 +1,3 @@
-/**
- * @author mrdoob / http://mrdoob.com
- */
-
 class Source {
 
 	constructor( dom ) {
