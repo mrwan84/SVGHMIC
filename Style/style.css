@@ -1,17 +1,22 @@
+/* General Reset and Box Sizing */
 * {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
 }
+
+/* Body Styles */
 body {
   color: #888;
   background: #eee;
   font-family: sans-serif;
   font-size: 13px;
-  display: flex;
+  display: flex; /* Sets the body to be a flex container */
 }
+
+/* Button Styles */
 button {
-  width: 100%;
+  width: 95%;
   color: #888;
   background-color: transparent;
   border: 1px solid #ccc;
@@ -20,16 +25,22 @@ button {
   cursor: pointer;
   outline: none;
 }
+
+/* Button Hover Effect */
 button:hover {
   color: #fff;
   border: transparent;
   background-color: #999;
 }
+
+/* Input Field Styles */
 input {
   color: #888;
   padding: 4px 8px;
+  width: 95%;
 }
 
+/* Toolbar Styles */
 .tools {
   font-size: 1.1rem;
   font-weight: bold;
@@ -37,28 +48,122 @@ input {
   display: flex;
   flex-direction: column;
   gap: 20px;
-  width: 110px;
+  width: 200px;
   line-height: 24px;
   vertical-align: top;
+  z-index: 1;
+  position: relative;
 }
-.content {
+
+/* SVG Container Styles */
+.contentSvg {
+  position: fixed;
   display: flex;
   flex-direction: column;
-  gap: 50px;
+  gap: 10px;
+  width: calc(100% - 50% - 210px);
+  height: 100%;
+  top: 0;
+  left: 205px;
 }
+
+/* SVG Stage Styles */
 .stage {
   background: #fff;
 }
-.stage.wireframe * {
+
+/* Wireframe Mode Styles */
+.stage.wireframeID * {
   stroke: #000 !important;
   stroke-width: 1px !important;
   fill: transparent !important;
 }
-.textarea {
+
+/* Text Area Styles */
+#txtAreaID {
   padding: 10px;
-  color: #ffffff;
-  background-color: #000000;
-  border: 0px;
-  width: 700px;
-  height: 300px;
+  color: #fff;
+  background-color: #000;
+  border: 0;
+  width: 50%;
+  height: 80%;
+  position: fixed;
+  right: 0;
+  top: 0;
+}
+
+/* Image Styles */
+#automationSetImgID {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 200px;
+  height: 160px;
+}
+
+/* Additional Parameters Form */
+.addParam {
+  position: fixed;
+  display: flex;
+  flex-direction: row;
+  gap: 5px;
+  bottom: 5px;
+  right: 0;
+  width: 50%;
+}
+
+/* Add Parameter Button */
+#addButtonID {
+  color: #888;
+  padding: 4px 8px;
+  height: 40px;
+  width: 120px;
+  position: absolute;
+  bottom: 5px;
+  right: 5px;
+  border: 1px solid #000;
+}
+
+/* Hide the default checkbox */
+.custom-checkbox input[type="checkbox"] {
+  display: none;
+}
+
+/* Create a custom square */
+.custom-checkbox .checkmark {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  background-color: #ccc;
+  position: relative;
+  vertical-align: middle;
+  cursor: pointer;
+}
+
+/* Add the check icon */
+.custom-checkbox .fas {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: transparent;
+}
+
+/* Show the check icon when the checkbox is Selected */
+.custom-checkbox input[type="checkbox"]:checked + .checkmark .fas {
+  color: white;
+}
+
+/* Change the background color when the checkbox is Selected */
+.custom-checkbox input[type="checkbox"]:checked + .checkmark {
+  background-color: #007bff;
+}
+
+.txtAreaID {
+	padding: 10px;
+	color: #ffffff;
+	background-color: #000000;
+	border: 0px;
+	width: 700px;
+	height: 300px;
 }
