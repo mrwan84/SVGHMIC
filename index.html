@@ -1,33 +1,78 @@
 <!DOCTYPE html>
 <html lang="en">
 	<head>
+		<!-- Meta Information -->
 		<title>SVG Editor</title>
+
+		<!-- Stylesheet Link -->
 		<link rel="stylesheet" href="Style/style.css">
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+
+		<!-- JavaScript Sources -->
 		<script src="js/Editor.js"></script>
 		<script src="js/Source.js"></script>
-		<script defer src="js/app.js"></script>
+  
+		<!-- Defer the script to execute it after the document has loaded -->
+		<script defer src="js/app.js"></script>		
+
+		<!-- vkBeautify Module -->
+		<script src="js/vkBeautify/vkbeautify.js"></script>
 	</head>
 	<body>
-		<span class="tools" id="tools">
-			<input id="title" value="Untitled" style="width:100%"></input>
-			<div><input id="wireframe" type="checkbox"></input> outline</div>
+		<!-- Toolbar Section -->
+		<div class="tools" id="toolsID">
+			<label>FileName: <input id="fileNameID" value="Untitled" /></label>
+
+			<label class="custom-checkbox">
+				Wireframe:
+				<input type="checkbox" id="wireframeID">
+				<span class="checkmark"><i class="fas fa-check"></i></span>
+			</label>
+
+			<label class="custom-checkbox">
+				PrettyView:
+				<input type="checkbox" id="prettyViewID" checked>
+				<span class="checkmark"><i class="fas fa-check"></i></span>
+			</label>
+
+			<label class="custom-checkbox">
+				WordWrap:
+				<input type="checkbox" id="wordWrapID" checked>
+				<span class="checkmark"><i class="fas fa-check"></i></span>
+			</label>
+
 			<button id="load">Load</button>
 			<button id="save">Save</button>
 			<button id="clear">Clear</button>
-		</span>
-		<span class="content" id="content">
-			<svg class="stage" id="stage" width="700" height="400" viewBox="0 0 600 400"></svg>
-			<textarea class="textarea" id="textarea" spellcheck="false"></textarea>
-			<span>
-				<input type="text" name="" id="paramName">
-				<select name="" id="paraType">
+		</div>
+  
+		<!-- SVG Display Section -->
+		<div class="contentSvg" id="contentSvgID">
+			<svg class="stage" id="stageID" viewBox="0 0 600 400"></svg>
+		</div>
+
+		<!-- Textarea for SVG XML Code -->
+		<textarea class="txtArea" id="txtAreaID" spellcheck="false"></textarea>
+
+		<!-- Additional Parameter Input Section -->
+		<div class="addParam" id="addParamID">
+			<label>Parameter Name: <input type="text" name="paramName" id="paramNameID"></label>
+			<label>Parameter Type:
+				<select name="paramType" id="paramTypeID">
 					<option value="HmiColor">HmiColor</option>
 					<option value="number">number</option>
 					<option value="boolean">boolean</option>
-				  </select> 
-				  <button id="add">ADD</button>  
-			</span>
-		</span>
-		<img src="./img/AutoSet.jpg" alt="Automation Set">
+					<option value="string">string</option>
+				</select>
+			</label>
+			<label>Parameter DefaultValue: <input type="text" name="paramDefValue" id="paramDefValueID" /></label>
+			<label>Parameter Connection: <input type="text" name="paramConnectID" id="paramConnectID" /></label>
+		</div>
+
+		<!-- Button to Add Parameter -->
+		<button id="addButtonID" class="addButton">ADD</button>
+
+		<!-- Image (likely for docation or illustration) -->
+		<img src="./img/AutoSet.jpg" alt="Automation Set" id="automationSetImgID" width="200" height="160">
 	</body>
 </html>
