@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Meta Information -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SVG to SVGHMI Converter - Professional Editor</title>
+    <meta name="description" content="Professional SVG to SVGHMI converter for WinCC Unified">
+
+    <!-- Stylesheet Link -->
+    <link rel="stylesheet" href="Style/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- JavaScript Sources -->
+    <script src="js/Editor.js"></script>
+    <script src="js/Source.js"></script>
+    <script defer src="js/app.js"></script>
+    <script src="js/vkBeautify/vkbeautify.js"></script>
+</head>
+<body>
+    <!-- Professional Sidebar/Toolbar -->
+    <aside class="tools" id="toolsID">
+        <!-- File Management Section -->
+        <div class="tool-section">
+            <h3>📁 File Management</h3>
+            <div class="form-group">
+                <label for="fileNameID">File Name</label>
+                <input type="text" id="fileNameID" value="Untitled" placeholder="Enter file name">
+            </div>
+            <div class="action-buttons">
+                <button id="load" class="primary" data-tooltip="Load SVG file">
+                    <i class="fas fa-folder-open"></i> Load SVG
+                </button>
+                <button id="save" class="success" data-tooltip="Save as SVGHMI">
+                    <i class="fas fa-download"></i> Save SVGHMI
+                </button>
+                <button id="clear" class="secondary" data-tooltip="Clear canvas">
+                    <i class="fas fa-trash"></i> Clear
+                </button>
+            </div>
+        </div>
+
+        <!-- Display Options Section -->
+        <div class="tool-section">
+            <h3>👁️ Display Options</h3>
+            <div class="checkbox-group">
+                <label class="custom-checkbox">
+                    <input type="checkbox" id="wireframeID">
+                    <span class="checkmark"></span>
+                    Wireframe Mode
+                </label>
+                <label class="custom-checkbox">
+                    <input type="checkbox" id="prettyViewID" checked>
+                    <span class="checkmark"></span>
+                    Pretty Format
+                </label>
+                <label class="custom-checkbox">
+                    <input type="checkbox" id="wordWrapID" checked>
+                    <span class="checkmark"></span>
+                    Word Wrap
+                </label>
+            </div>
+        </div>
+
+        <!-- Parameter Configuration Section -->
+        <div class="tool-section">
+            <h3>⚙️ Parameter Settings</h3>
+            <div class="addParam" id="addParamID">
+                <h4>Add New Parameter</h4>
+                <div class="param-row full">
+                    <div class="form-group">
+                        <label for="paramNameID">Parameter Name</label>
+                        <input type="text" id="paramNameID" placeholder="Enter parameter name">
+                    </div>
+                </div>
+                <div class="param-row">
+                    <div class="form-group">
+                        <label for="paramTypeID">Type</label>
+                        <select id="paramTypeID">
+                            <option value="HmiColor">HmiColor</option>
+                            <option value="number">Number</option>
+                            <option value="boolean">Boolean</option>
+                            <option value="string">String</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="paramDefValueID">Default Value</label>
+                        <input type="text" id="paramDefValueID" placeholder="Default value">
+                    </div>
+                </div>
+                <div class="param-row full">
+                    <div class="form-group">
+                        <label for="paramConnectID">Connection</label>
+                        <input type="text" id="paramConnectID" placeholder="Parameter connection">
+                    </div>
+                </div>
+                <button id="addButtonID">
+                    <i class="fas fa-plus"></i> Add Parameter
+                </button>
+            </div>
+        </div>
+    </aside>
+
+    <!-- SVG Canvas Area -->
+    <main class="contentSvg" id="contentSvgID">
+        <header class="canvas-header">
+            <div class="canvas-title">
+                <i class="fas fa-paint-brush"></i> SVG Canvas
+            </div>
+            <div class="canvas-controls">
+                <button class="secondary" onclick="document.getElementById('stageID').style.transform = 'scale(1)'">
+                    <i class="fas fa-expand-arrows-alt"></i> Fit
+                </button>
+            </div>
+        </header>
+        <div class="canvas-content">
+            <svg class="stage" id="stageID" viewBox="0 0 600 400">
+                <defs>
+                    <pattern id="grid" width="20" height="20" patternUnits="userSpaceOnUse">
+                        <path d="M 20 0 L 0 0 0 20" fill="none" stroke="#e2e8f0" stroke-width="1" opacity="0.5"/>
+                    </pattern>
+                </defs>
+                <rect width="100%" height="100%" fill="url(#grid)" opacity="0.3"/>
+            </svg>
+        </div>
+    </main>
+
+    <!-- Code Editor Panel -->
+    <aside class="code-panel">
+        <header class="code-header">
+            <div class="code-title">
+                <i class="fas fa-code"></i> SVGHMI Code
+            </div>
+            <div class="code-actions">
+                <button class="secondary" onclick="navigator.clipboard.writeText(document.getElementById('txtAreaID').value)">
+                    <i class="fas fa-copy"></i> Copy
+                </button>
+            </div>
+        </header>
+        <textarea id="txtAreaID" spellcheck="false" placeholder="SVG code will appear here after loading a file..."></textarea>
+    </aside>
+
+    <!-- Branding Image -->
+    <img src="./img/AutoSet.jpg" alt="Automation Set - Professional SVG Editor" id="automationSetImgID">
+</body>
+</html>
